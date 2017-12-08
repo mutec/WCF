@@ -10,10 +10,42 @@
 	font-style: normal;
 }
 
-.icon, .fa {
+@font-face {
+	font-family: 'FontAwesome Regular';
+	src: url('../font/getFont.php?font=fa-regular-400&type=eot&v=5.0.0');
+	src: url('../font/getFont.php?font=fa-regular-400&type=eot&v=5.0.0#iefix') format('embedded-opentype'),
+	url('../font/getFont.php?font=fa-regular-400&type=woff2&v=5.0.0') format('woff2'),
+	url('../font/getFont.php?font=fa-regular-400&type=woff&v=5.0.0') format('woff'),
+	url('../font/getFont.php?font=fa-regular-400&type=ttf&v=5.0.0') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'FontAwesome Solid';
+	src: url('../font/getFont.php?font=fa-solid-900&type=eot&v=5.0.0');
+	src: url('../font/getFont.php?font=fa-solid-900&type=eot&v=5.0.0#iefix') format('embedded-opentype'),
+	url('../font/getFont.php?font=fa-solid-900&type=woff2&v=5.0.0') format('woff2'),
+	url('../font/getFont.php?font=fa-solid-900&type=woff&v=5.0.0') format('woff'),
+	url('../font/getFont.php?font=fa-solid-900&type=ttf&v=5.0.0') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'FontAwesome Brands';
+	src: url('../font/getFont.php?font=fa-brands-400&type=eot&v=5.0.0');
+	src: url('../font/getFont.php?font=fa-brands-400&type=eot&v=5.0.0#iefix') format('embedded-opentype'),
+	url('../font/getFont.php?font=fa-brands-400&type=woff2&v=5.0.0') format('woff2'),
+	url('../font/getFont.php?font=fa-brands-400&type=woff&v=5.0.0') format('woff'),
+	url('../font/getFont.php?font=fa-brands-400&type=ttf&v=5.0.0') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.icon, .fa, .far, .fas, .fab, fal {
 	color: $wcfContentText;
 	display: inline-block;
-	font-family: FontAwesome;
 	font-weight: normal !important;
 	font-style: normal !important;
 	text-align: center;
@@ -68,6 +100,22 @@
 	&.pink {
 		color: #f0c;
 	}
+}
+
+.icon, .fa {
+	font-family: "FontAwesome";
+}
+
+.far {
+	font-family: "FontAwesome Regular";
+}
+
+.fab {
+	font-family: "FontAwesome Brands";
+}
+
+.fas {
+	font-family: "FontAwesome Solid";
 }
 
 // firefox cursor issue
@@ -217,4 +265,5 @@ a > span.fa:not(.pointer) {
 }
 
 @import "variables";
+@import "compatibility";
 @import "icons";
