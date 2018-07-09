@@ -16,7 +16,14 @@ class CommandsCLICommand implements ICLICommand {
 	 * @inheritDoc
 	 */
 	public function execute(array $parameters) {
-		CLIWCF::getReader()->println(CLIUtil::generateList(array_keys(CLICommandHandler::getCommands())));
+		$output = [];
+		
+		foreach (CLICommandHandler::getCommands() as $name => $command) {
+			if ($command instanceof IArgumentedCLICommand) $output[] = $command->getUsage();
+			else $output[] = $name;
+		}
+		
+		CLIWCF::getReader()->println(CLIUtil::generateList($output));
 	}
 	
 	/**
