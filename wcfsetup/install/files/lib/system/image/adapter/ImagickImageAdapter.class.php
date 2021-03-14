@@ -516,7 +516,17 @@ class ImagickImageAdapter implements IImageAdapter
                 throw new \LogicException("Unreachable");
         }
 
-        $image->writeImages("{$fileFormat}:{$filename}", true);
+        try {
+	    $image->writeImages("{$fileFormat}:{$filename}", true);
+        }
+        catch (\ImagickException $e) {
+            if (strpos($e->getMessage(), "delegate failed `'cwebp'") !== false) {
+                throw new \RuntimeException("The package 'webp' is required by ImageMagick, but not installed on your server.");
+            }
+            else {
+                throw $e;
+            }
+        }
     }
 
     /**
